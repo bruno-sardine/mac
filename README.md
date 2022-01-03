@@ -11,9 +11,9 @@ I run a Plex server on an old 2012 Mac Mini.  Attached to it are 2 USB3 Western 
 ```
 Change the Volume paths in the script to match your paths.  
 
-###### Cricut
+### Cricut
 
-### Generic 2" x 2" Slide Mount Frame for Epson V600
+###### Generic 2" x 2" Slide Mount Frame for Epson V600
 Template for Epson V600 Scanner that allows for any slide in a 2"x2" mount.  I specifically need this for some older 120 / 220 / 620 Medium Format Slides mounted in a metal frame.
 
 I just cut this out on black card stock since you really just need to visually see where to place the slides on the scanner bed.

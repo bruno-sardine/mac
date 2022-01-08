@@ -1,5 +1,6 @@
   * [Stop Western Digital External Hard Drives from Sleeping](#Stop-Western-Digital-External-Hard-Drives-from-Sleeping)
   * [OS X: Split Large Files](#OS-X-Split-Large-Files)
+  * [OS X: Backup SD Cards](#OS-X-Backup-SD-Cards)
   * [Cricut](#Cricut)
 
 
@@ -23,6 +24,28 @@ To re-join:
 ```
 cat file1 file2 file(n) > restored_file_name
 ```
+
+###### OS X: Backup SD Cards
+1. Make sure you get the right device.  Will probably be rdisk2, but just find the disk where the size matches your SD card. If you see “disk2”, use rdisk2 (it’s faster and does a straight 1:1 copy)
+`$ diskutil list`
+
+
+2. The “in file” (if) is the mounted disk (your SD card).  The “out file” (of) is the location and name if the backup image you’re creating.  “Bs” is the block size of 1 megabyte.
+`$ sudo dd if=/dev/rdisk2 of=~/Desktop/retropie.img bs=1m`
+
+This operation will take a long time because it’s a copy, block for block, of the entire SD card (unused space and all).
+
+Restore raspberry pi image back to an SD card
+
+1. Make sure you get the right device.  Will probably be disk2, but just find the disk where the size matches your SD card.
+`$ diskutil list`
+
+2. Now unmount the disk (the SD card)
+`$diskutil unmountDisk /dev/disk2`
+
+3. The “in file” (if) the location and name of the image to be put back on the SD card.  The “out file” (of) is the mounted disk (your SD card).  “Bs” is the block size of 1 megabyte.
+`$ sudo dd if=/Users/cmelvin/Desktop/retropie.img of=/dev/rdisk2 bs=1m`
+
 
 ### Cricut
 

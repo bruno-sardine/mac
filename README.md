@@ -1,4 +1,5 @@
-  * [Scripts](#Scripts)
+  * [Stop Western Digital External Hard Drives from Sleeping](#Stop-Western-Digital-External-Hard-Drives-from-Sleeping)
+  * [OS X: Split Large Files](#OS-X:-Split-Large-Files)
   * [Cricut](#Cricut)
 
 
@@ -10,6 +11,18 @@ I run a Plex server on an old 2012 Mac Mini.  Attached to it are 2 USB3 Western 
 05 07 * * *  cd ~ && ./wd_element_stop_sleep.sh
 ```
 Change the Volume paths in the script to match your paths.  
+
+###### OS X: Split Large Files
+```
+split -b <#>[k | m] input_ file output_file
+```
+Example: `split -b 2000m inventory.tc.bak inventory.tc.bak`
+Produces: inventory.tc.baka, inventory.tc.bakb, etc... all 2GB in size.
+
+To re-join:
+```
+cat file1 file2 file(n) > restored_file_name
+```
 
 ### Cricut
 

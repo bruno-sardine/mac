@@ -1,5 +1,5 @@
   * [Stop Western Digital External Hard Drives from Sleeping](#Stop-Western-Digital-External-Hard-Drives-from-Sleeping)
-  * [OS X: Split Large Files](#OS-X:-Split-Large-Files)
+  * [OS X: Split Large Files](#OS-X-Split-Large-Files)
   * [Cricut](#Cricut)
 
 

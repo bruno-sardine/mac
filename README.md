@@ -1,7 +1,7 @@
   * [Stop Western Digital External Hard Drives from Sleeping](#Stop-Western-Digital-External-Hard-Drives-from-Sleeping)
   * [OS X: Split Large Files](#OS-X-Split-Large-Files)
   * [OS X: Backup SD Cards](#OS-X-Backup-SD-Cards)
-  * [OS X: Make Stupid BLOATED Plex DVR .ts Files Smaller]
+  * [OS X: Make Stupid BLOATED Plex DVR .ts Files Smaller](#os-x-make-stupid-bloated-plex-dvr-ts-files-smaller)
   * [Cricut](#Cricut)
 
 

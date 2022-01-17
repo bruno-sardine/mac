@@ -49,11 +49,11 @@ Restore raspberry pi image back to an SD card
 
 ###### OS X: Make Stupid BLOATED Plex DVR .ts Files Smaller
 
-Not sure why Plex records OTA shit as way oversized .ts files.  They are so big that, in a room further away from full Wifi, that scrubbing and skip commercials often hangs.  Invoking subtitles will often give a message saying I don't have enough bandwidth.  My HDHomeRun is set to use "Highest Quality" (which means it should be using it's built in encoder) but the files are just unmanageable.
+Not sure why Plex records OTA shit as way oversized .ts files.  They are so big that, in a room further away from full Wifi, scrubbing and skipping commercials often hangs.  Invoking subtitles will often give a message saying I don't have enough bandwidth.  My HDHomeRun is set to use "Highest Quality" (which means it should be using it's built in encoder) but the files are just unmanageable.
 
-I've seen some post-processing scripts, and some python code I could use to convert the .ts files - but it just seemed all "too much".  I just made my own bash script, and it works FANTASTIC.
+I've seen some post-processing scripts, and some python code I could use to convert the .ts files - but it just seemed all "too much".  I made my own bash script, and it works FANTASTIC.  All you need is HandBrakeCLI for OS X.  It's a self-contained utility.  Just download it from the handbrake site and toss it in your user directory.
 
-OS X uses bash 3.2, and some of the syntax is SPECIFIC to a bash version < 4.0.  I'm sure this script would work on linux, but how I declare the array is, I believe, the method for bash 3.2.  You'll also need to change the very last line of the script.
+OS X uses bash 3.2, and some of the syntax is SPECIFIC to a bash version < 4.0.  I'm sure this script would work on linux or a newer bash, but how I declare the array is, I believe, the method for bash 3.2.  You'll also need to change the very last line of the script.
 ```
 #!/bin/bash
 ifs_saved=$IFS
@@ -79,21 +79,21 @@ done
 
 Explanation:  Let's say I've recorded /Volumes/Media/TV/The Flash/The Flash S01E01 Pilot.ts
 1. We need our field seperator (IFS) to be a newline.
-2. declare our array, search the file system for all .ts files, and throw each .ts file in the array
+2. declare our array, search the file system for all .ts files, and throw each .ts file in the array (this is what might be different in bash 4+)
 3. revert your IFS
 4. Next, I just echo how many files I'm going to process - which makes no sense because I'm asleep when this all happens.
 5. Create a for loop to process each file (tLen)
 6. the syntax for the ```directory``` variable gives me: /Volumes/Media/TV/The Flash/
 7. the syntax for the ```filename``` variable gives me: The Flash S01E01 Pilot.ts
 8. the syntax for the ```fileNoExt``` varaible gives me: The Flash S01E01
-9. Use handbrakecli and simply use a preset.  Yout infile (-i) is your current array element, and the outfile (-o) is your directory, the file with no extension, and .mp4
+9. Use handbrakecli and simply use a preset.  Your infile (-i) is your current array element, and the outfile (-o) is your directory, the file with no extension, and .mp4
 10. when the conversion is done, delete the original .ts file
 11. We repeat this until all .ts files are done.
-12. Finally, scan your media.  If you "Get Contents" on the plex media server app, you can see the "plex media scanner".  You need this, but you first need to know your "section".  If I recall, if you run the command ```/Applications/Plex\ Media\ Server.app/Contents/MacOS/Plex\ Media\ Scanner --list``` you see all of your libraries with a section number.  My TV library is "2".  Yours will be something else.
+12. Finally, scan your media.  If you "Get Contents" on the plex media server app (rt. click on the application), you can see the "plex media scanner" under contents/macos.  You need this, but you first need to know your "section".  If I recall, if you run the command ```/Applications/Plex\ Media\ Server.app/Contents/MacOS/Plex\ Media\ Scanner --list``` you see all of your libraries with a section number.  My TV library is "2".  Yours will be something else.
 
 Throw this script in crontab and enjoy.  I run this script every night at 4am.
 
-My end result is: ```/Volumes/Media/TV/The Flash/The Flash S01E01 Pilot.mp4``` which is 1/5th the size of the original .ts file.
+My end result is: ```/Volumes/Media/TV/The Flash/The Flash S01E01 Pilot.mp4``` (with the poster, description, and all of the metadata shit) which is 1/5th the size of the original .ts file.
 
 ### Cricut
 

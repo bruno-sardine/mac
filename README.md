@@ -53,7 +53,7 @@ Not sure why Plex records OTA shit as way oversized .ts files.  They are so big 
 
 I've seen some post-processing scripts, and some python code I could use to convert the .ts files - but it just seemed all "too much".  I made my own bash script, and it works FANTASTIC.  All you need is HandBrakeCLI for OS X.  It's a self-contained utility.  Just download it from the handbrake site and toss it in your user directory.
 
-OS X uses bash 3.2, and some of the syntax is SPECIFIC to a bash version < 4.0.  I'm sure this script would work on linux or a newer bash, but how I declare the array is, I believe, the method for bash 3.2.  You'll also need to change the very last line of the script.
+OS X uses bash 3.2, and some of the syntax is SPECIFIC to a bash version < 4.0.  I'm sure this script would work on linux or a newer bash, but how I declare the array is, I believe, the method for bash 3.2.  You'll also need to change the 2nd to last line of the script.
 ```
 #!/bin/bash
 logfile=/Users/cmelvin/Desktop/ts2mp4.log

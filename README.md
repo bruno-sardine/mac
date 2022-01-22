@@ -99,7 +99,7 @@ UPDATE: Added Some Simple Logging
 9. Use handbrakecli and simply use a preset.  Your infile (-i) is your current array element, and the outfile (-o) the same directory + the file with no extension + .mp4
 10. when the conversion is done, delete the original .ts file
 11. We repeat this until all .ts files are done.
-12. Finally, Plex needs to scan your media.  If you "Get Contents" on the plex media server app (rt. click on the application), you can see the "plex media scanner" under contents/macos.  You need this executable, but you first need to know your "section" which is a number identifier of your Libraries.  If I recall, you run the command ```/Applications/Plex\ Media\ Server.app/Contents/MacOS/Plex\ Media\ Scanner --list``` to see all of your libraries with a section number.  My TV library is "section 2".  Yours will be something else.
+12. Finally, Plex needs to scan your media.  If you "Get Contents" on the plex media server app (rt. click on the application), you can see the "plex media scanner" under contents/macos.  You need this executable, but you first need to know your "section" which is a number identifier of your Libraries.  Run the command ```/Applications/Plex\ Media\ Server.app/Contents/MacOS/Plex\ Media\ Scanner --list``` to see all of your libraries with a section number.  My TV library is "section 2".  Yours will be something else.
 
 Throw this script in crontab and enjoy.  I run this script every night at 4am.
 

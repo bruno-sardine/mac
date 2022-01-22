@@ -56,6 +56,10 @@ I've seen some post-processing scripts, and some python code I could use to conv
 OS X uses bash 3.2, and some of the syntax is SPECIFIC to a bash version < 4.0.  I'm sure this script would work on linux or a newer bash, but how I declare the array is, I believe, the method for bash 3.2.  You'll also need to change the very last line of the script.
 ```
 #!/bin/bash
+logfile=/Users/cmelvin/Desktop/ts2mp4.log
+echo --------------------------------------- >> "$logfile"
+echo $(date +"%F %T") Starting ts Convert >> "$logfile"
+
 ifs_saved=$IFS
 IFS=$'\n'
 declare -a fileArray
@@ -63,21 +67,27 @@ fileArray=($(find /Volumes/Media/TV -type f -name '*.ts'))
 IFS=ifs_saved 
 
 tLen=${#fileArray[@]}
-echo $tLen " .ts files to process"
+echo $(date +"%F %T") There are $tLen .ts files to process >> "$logfile"
 
 for (( i=0; i<${tLen}; i++ ));
 do
-  echo "Re-encoding: ""${fileArray[$i]}"
+  echo $(date +"%F %T") Re-encoding: "${fileArray[$i]}" >> "$logfile"          
   directory="${fileArray[$i]%/*}/"
   filename=$(basename -- "${fileArray[$i]}")
   fileNoExt="${filename%.*}"
   /Users/cmelvin/HandBrakeCLI --preset "Fast 1080p30" -i "${fileArray[$i]}" -o "$directory""$fileNoExt".mp4
   rm "${fileArray[$i]}"
 done
+echo $(date +"%F %T") Refreshing Plex TV Library >> "$logfile"
 /Applications/Plex\ Media\ Server.app/Contents/MacOS/Plex\ Media\ Scanner --scan --refresh --section 2
+
+echo $(date +"%F %T") Ending ts Convert >> "$logfile"
 ```
 
 Explanation:  Let's say I've recorded /Volumes/Media/TV/The Flash/The Flash S01E01 Pilot.ts
+
+UPDATE: Added Some Simple Logging 
+
 1. We need our field seperator (IFS) to be a newline.
 2. declare our array, search the file system for all .ts files, and throw each .ts file in the array (this is what might be different in bash 4+)
 3. revert your IFS

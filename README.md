@@ -10,7 +10,6 @@ Navigation:
   * [Cricut](#Cricut)
 
 
-### Scripts
 
 ## Further correct YouTube captions
 Some old made-for-TV movies have no subtitles or bad subtitles from opensubtitles.org.

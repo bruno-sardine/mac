@@ -3,6 +3,7 @@
 # Usage:
 # Put the file wherever you want.
 # chmod 777 captfix.sh
+# If your file has spaces in it, temporaility rename it (e.g. "my movie file.srt" to "file.srt")
 # ./captfix.sh file.srt
 # 
 # Prerequisite:

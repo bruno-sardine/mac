@@ -1,3 +1,7 @@
+ # OS X Script and Tips Collection
+Things I've made, modified, or collected that make my life with OS X a little easier.
+
+Navigation:
   * [Further correct YouTube captions](#Further-correct-YouTube-captions)
   * [Stop Western Digital External Hard Drives from Sleeping](#Stop-Western-Digital-External-Hard-Drives-from-Sleeping)
   * [OS X: Split Large Files](#OS-X-Split-Large-Files)

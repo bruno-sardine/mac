@@ -12,11 +12,10 @@ Navigation:
 
 
 ## Further correct YouTube captions (captfix.sh)
-Some old made-for-TV movies have no subtitles or bad subtitles from opensubtitles.org.
- My workflow is to upload the movie to youtube, set to private, wait for the captions to be generated (about a day), and download the captions.
- The problem is youtube generates karaoke-style captions which makes viewing these subtitles a horrible experience. 
+Some old made-for-TV movies have no subtitles or bad subtitles from opensubtitles.org. My workflow is to upload the movie to youtube, set to private, wait for the captions to be generated (about a day), and download the captions. The problem is youtube generates karaoke-style captions which makes viewing these subtitles a horrible experience. 
 
  First: Use this tool to fix the karaoke-style captions: https://gist.github.com/nimatrueway/4589700f49c691e5413c5b2df4d02f4f
+ 
  Second: Use my script (captfix.sh) to fix MOST of the remaining issues (lowercase "i" and capitalize the start of a sentence)
 
 ## Stop Western Digital External Hard Drives from Sleeping

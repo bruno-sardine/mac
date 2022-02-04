@@ -66,33 +66,33 @@ I've seen some post-processing scripts, and some python code I could use to conv
 
 OS X uses bash 3.2, and some of the syntax is SPECIFIC to a bash version < 4.0.  I'm sure this script would work on linux or a newer bash, but how I declare the array is, I believe, the method for bash 3.2.  You'll also need to change the 2nd to last line of the script.
 ```
-#!/bin/bash
-logfile=/Users/cmelvin/Desktop/ts2mp4.log
-echo --------------------------------------- >> "$logfile"
-echo $(date +"%F %T") Starting ts Convert >> "$logfile"
+01 #!/bin/bash
+02 logfile=/Users/cmelvin/Desktop/ts2mp4.log
+03 echo --------------------------------------- >> "$logfile"
+04 echo $(date +"%F %T") Starting ts Convert >> "$logfile"
 
-ifs_saved=$IFS
-IFS=$'\n'
-declare -a fileArray
-fileArray=($(find /Volumes/Media/TV -type f -name '*.ts'))
-IFS=ifs_saved 
+05 ifs_saved=$IFS
+06 IFS=$'\n'
+07 declare -a fileArray
+08 fileArray=($(find /Volumes/Media/TV -type f -name '*.ts'))
+09 IFS=ifs_saved 
 
-tLen=${#fileArray[@]}
-echo $(date +"%F %T") There are $tLen .ts files to process >> "$logfile"
+10 tLen=${#fileArray[@]}
+11 echo $(date +"%F %T") There are $tLen .ts files to process >> "$logfile"
 
-for (( i=0; i<${tLen}; i++ ));
-do
-  echo $(date +"%F %T") Re-encoding: "${fileArray[$i]}" >> "$logfile"          
-  directory="${fileArray[$i]%/*}/"
-  filename=$(basename -- "${fileArray[$i]}")
-  fileNoExt="${filename%.*}"
-  /Users/cmelvin/HandBrakeCLI --preset "Fast 1080p30" -i "${fileArray[$i]}" -o "$directory""$fileNoExt".mp4
-  rm "${fileArray[$i]}"
-done
-echo $(date +"%F %T") Refreshing Plex TV Library >> "$logfile"
-/Applications/Plex\ Media\ Server.app/Contents/MacOS/Plex\ Media\ Scanner --scan --refresh --section 2
+12 for (( i=0; i<${tLen}; i++ ));
+13 do
+14   echo $(date +"%F %T") Re-encoding: "${fileArray[$i]}" >> "$logfile"          
+15   directory="${fileArray[$i]%/*}/"
+16   filename=$(basename -- "${fileArray[$i]}")
+17   fileNoExt="${filename%.*}"
+18   /Users/cmelvin/HandBrakeCLI --preset "Fast 1080p30" -i "${fileArray[$i]}" -o "$directory""$fileNoExt".mp4
+19   rm "${fileArray[$i]}"
+20 done
+21 echo $(date +"%F %T") Refreshing Plex TV Library >> "$logfile"
+22 /Applications/Plex\ Media\ Server.app/Contents/MacOS/Plex\ Media\ Scanner --scan --refresh --section 2
 
-echo $(date +"%F %T") Ending ts Convert >> "$logfile"
+23 echo $(date +"%F %T") Ending ts Convert >> "$logfile"
 ```
 
 Explanation:  Let's say I've recorded /Volumes/Media/TV/The Flash/The Flash S01E01 Pilot.ts

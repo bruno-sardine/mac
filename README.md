@@ -17,14 +17,14 @@ First: Use this tool to fix the karaoke-style captions: https://gist.github.com/
 
 Second: Use my script (captfix.sh) to fix MOST of the remaining issues (lowercase "i" and capitalize the start of a sentence)
 
-###### Stop Western Digital External Hard Drives from Sleeping
+## Stop Western Digital External Hard Drives from Sleeping
 I run a Plex server on an old 2012 Mac Mini.  Attached to it are 2 USB3 Western Digital WD100EZAZ-11TDBA0 hard drives setup as RAID 1.  These drives sleep after just a few minutes.  The result - when selecting an item from Plex, it takes 10 seconds for hard drive 1 to wake, and 10 seconds for hard drive 2 to wake.  Waiting 20 seconds after hitting "play" is embarassing.  This script will keep the hard drives awake from 7am to 11pm by touching a file every minute.  Activate the script using `cron` to start it every morning.  Does this damage the drives?  I have no idea.  It's been running from over a year.  Here's the `cron` command: 
 ```
 05 07 * * *  cd ~ && ./wd_element_stop_sleep.sh
 ```
 Change the Volume paths in the script to match your paths.  
 
-###### OS X: Split Large Files
+## OS X: Split Large Files
 ```
 split -b <#>[k | m] input_ file output_file
 ```
@@ -36,7 +36,7 @@ To re-join:
 cat file1 file2 file(n) > restored_file_name
 ```
 
-###### OS X: Backup SD Cards
+## OS X: Backup SD Cards
 1. Make sure you get the right device.  Will probably be rdisk2, but just find the disk where the size matches your SD card. If you see “disk2”, use rdisk2 (it’s faster and does a straight 1:1 copy)
 `$ diskutil list`
 
@@ -57,7 +57,7 @@ Restore raspberry pi image back to an SD card
 3. The “in file” (if) the location and name of the image to be put back on the SD card.  The “out file” (of) is the mounted disk (your SD card).  “Bs” is the block size of 1 megabyte.
 `$ sudo dd if=/Users/cmelvin/Desktop/retropie.img of=/dev/rdisk2 bs=1m`
 
-###### OS X: Make Stupid BLOATED Plex DVR .ts Files Smaller
+## OS X: Make Stupid BLOATED Plex DVR .ts Files Smaller
 
 Not sure why Plex records OTA shit as way oversized .ts files.  They are so big that, in a room further away from full Wifi, scrubbing and skipping commercials often hangs.  Invoking subtitles will often give a message saying I don't have enough bandwidth.  My HDHomeRun is set to use "Highest Quality" (which means it should be using it's built in encoder) but the files are just unmanageable.
 
@@ -131,7 +131,7 @@ My end result is: ```/Volumes/Media/TV/The Flash/The Flash S01E01 Pilot.mp4``` (
 
 ### Cricut
 
-###### Generic 2" x 2" Slide Mount Frame for Epson V600
+## Generic 2" x 2" Slide Mount Frame for Epson V600
 Template for Epson V600 Scanner that allows for any slide in a 2"x2" mount.  I specifically need this for some older 120 / 220 / 620 Medium Format Slides mounted in a metal frame.
 
 I just cut this out on black card stock since you really just need to visually see where to place the slides on the scanner bed.

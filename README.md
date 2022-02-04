@@ -66,6 +66,7 @@ I've seen some post-processing scripts, and some python code I could use to conv
 
 OS X uses bash 3.2, and some of the syntax is SPECIFIC to a bash version < 4.0.  I'm sure this script would work on linux or a newer bash, but how I declare the array is, I believe, the method for bash 3.2.  You'll also need to change the 2nd to last line of the script.
 ```
+DOWNLOAD THIS SCRIPT, DON'T CUT/PASTE.  I'm using the line numbers to explain how this works!
 01 #!/bin/bash
 02 logfile=/Users/cmelvin/Desktop/ts2mp4.log
 03 echo --------------------------------------- >> "$logfile"
@@ -99,18 +100,18 @@ Explanation:  Let's say I've recorded /Volumes/Media/TV/The Flash/The Flash S01E
 
 UPDATE: Added Some Simple Logging 
 
-1. We need our field seperator (IFS) to be a newline.
-2. declare our array, search the file system for all .ts files, and throw each .ts file in the array (this is what might be different in bash 4+)
-3. revert your IFS
-4. Next, I just echo how many files I'm going to process - which makes no sense because I'm asleep when this all happens.
-5. Create a for loop to process each file (tLen)
-6. the syntax for the ```directory``` variable gives me: /Volumes/Media/TV/The Flash/
-7. the syntax for the ```filename``` variable gives me: The Flash S01E01 Pilot.ts
-8. the syntax for the ```fileNoExt``` varaible gives me: The Flash S01E01
-9. Use handbrakecli and simply use a preset.  Your infile (-i) is your current array element, and the outfile (-o) the same directory + the file with no extension + .mp4
-10. when the conversion is done, delete the original .ts file
-11. We repeat this until all .ts files are done.
-12. Finally, Plex needs to scan your media.  If you "Get Contents" on the plex media server app (rt. click on the application), you can see the "plex media scanner" under contents/macos.  You need this executable, but you first need to know your "section" which is a number identifier of your Libraries.  Run the command ```/Applications/Plex\ Media\ Server.app/Contents/MacOS/Plex\ Media\ Scanner --list``` to see all of your libraries with a section number.  My TV library is section 2.  Yours will be something else.  See my output:
+05-06: We need our field seperator (IFS) to be a newline.
+07-08: declare our array, search the file system for all .ts files, and throw each .ts file in the array (this is what might be different in bash 4+)
+09: revert your IFS
+11: Next, I just echo how many files I'm going to process - which makes no sense because I'm asleep when this all happens.
+12: Create a for loop to process each file (tLen)
+15: the syntax for the ```directory``` variable gives me: /Volumes/Media/TV/The Flash/
+16: the syntax for the ```filename``` variable gives me: The Flash S01E01 Pilot.ts
+17: the syntax for the ```fileNoExt``` varaible gives me: The Flash S01E01
+18: Use handbrakecli and simply use a preset.  Your infile (-i) is your current array element, and the outfile (-o) the same directory + the file with no extension + .mp4
+19: when the conversion is done, delete the original .ts file
+20: We repeat this until all .ts files are done.
+22: Finally, Plex needs to scan your media.  If you "Get Contents" on the plex media server app (rt. click on the application), you can see the "plex media scanner" under contents/macos.  You need this executable, but you first need to know your "section" which is a number identifier of your Libraries.  Run the command ```/Applications/Plex\ Media\ Server.app/Contents/MacOS/Plex\ Media\ Scanner --list``` to see all of your libraries with a section number.  My TV library is section 2.  Yours will be something else.  See my output:
 
 ```
 Plex:~ cmelvin$ /Applications/Plex\ Media\ Server.app/Contents/MacOS/Plex\ Media\ Scanner --list

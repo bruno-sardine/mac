@@ -2,8 +2,8 @@
 Things I've made, modified, or collected that make my life with OS X a little easier.
 
 Navigation:
-  * [Further correct YouTube captions](#Further-correct-YouTube-captions-captfix.sh)
-  * [Stop Western Digital External Hard Drives from Sleeping](#Stop-Western-Digital-External-Hard-Drives-from-Sleeping-Wd_element_stop_sleep.sh)
+  * [Further correct YouTube captions](#Further-correct-YouTube-captions-captfixsh)
+  * [Stop Western Digital External Hard Drives from Sleeping](#Stop-Western-Digital-External-Hard-Drives-from-Sleeping-Wd_element_stop_sleepsh)
   * [OS X: Split Large Files](#OS-X-Split-Large-Files)
   * [OS X: Backup SD Cards](#OS-X-Backup-SD-Cards)
   * [OS X: Make Stupid BLOATED Plex DVR .ts Files Smaller](#os-x-make-stupid-bloated-plex-dvr-ts-files-smaller-ts2mp4sh)

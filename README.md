@@ -17,6 +17,8 @@ Some old made-for-TV movies have no subtitles or bad subtitles from opensubtitle
  First: Use this tool to fix the karaoke-style captions: https://gist.github.com/nimatrueway/4589700f49c691e5413c5b2df4d02f4f
  
  Second: Use my script (captfix.sh) to fix MOST of the remaining issues (lowercase "i" and capitalize the start of a sentence)
+ 
+ You'll be left with a file you still need to manually go through, but now it should be junk like proper names and punctuation.
 
 ## Stop Western Digital External Hard Drives from Sleeping (Wd_element_stop_sleep.sh)
 I run a Plex server on an old 2012 Mac Mini.  Attached to it are 2 USB3 Western Digital WD100EZAZ-11TDBA0 hard drives setup as RAID 1.  These drives sleep after just a few minutes.  The result - when selecting an item from Plex, it takes 10 seconds for hard drive 1 to wake, and 10 seconds for hard drive 2 to wake.  Waiting 20 seconds after hitting "play" is embarassing.  This script will keep the hard drives awake from 7am to 11pm by touching a file every minute.  Activate the script using `cron` to start it every morning.  Does this damage the drives?  I have no idea.  It's been running from over a year.  Here's the `cron` command: 

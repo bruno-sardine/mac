@@ -16,7 +16,7 @@
 # the following problems still exist:
 # 
 # 1. First letter of each line is lower case. 
-#    This will fix about 80% of youtube's captions since many lines are the beginning of a sentence.
+#    This will fix about 70% of youtube's captions since many lines are the beginning of a sentence.
 # 2. All letter "i" are lower case, where they are not supposed to be:
 #    "winning" > GOOD
 #    "hello i need this" > BAD

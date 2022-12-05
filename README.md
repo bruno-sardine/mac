@@ -157,6 +157,7 @@ I just cut this out on black card stock since you really just need to visually s
 ### Plex Storage and Backup
 
 ## Backup Method
+```
     ┌──────────────────┐
 ┌───┤macmini plex srv. │
 │   └──────────────────┘
@@ -181,7 +182,7 @@ I just cut this out on black card stock since you really just need to visually s
     4. empty                             4. old 10TB usb external
 
     Drives 1+2 = RAID1                   Drives 1+3+4 = JBOD array (totalling 38GB)
-
+```
 
     Method: every night at 1am, rsync anything new to garage NAS
             every 3 days, backup the plex database (this houses all metadata for libraries)

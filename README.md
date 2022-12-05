@@ -153,3 +153,35 @@ I just cut this out on black card stock since you really just need to visually s
 
 - If you have Cricut Design Space installed, the project is here: https://design.cricut.com/landing/project-detail/61ce0ce7501e612d12d67764 
 - If you do not have CDS or just want to download the file: download .svg file, set dimensions to 6.5" x 10.625", attach all layers so they cut on a single sheet
+
+### Plex Storage and Backup
+
+## Backup Method
+    ┌──────────────────┐
+┌───┤macmini plex srv. │
+│   └──────────────────┘
+│
+│
+│                                    ┼
+│
+│   4-Bay SATA Enclosure
+│    ┌──────────────┐                    2-bay NAS in the garage
+│    │┼┼──┼──┼──┼──┼│                    ┌───────┐
+│    │┼│  │  │  │  ││                    │       │
+└────┼┼│  │  │  │  ││                    ├──┬──┐ │
+     │┼│1 │2 │3 │4 ││                    │  │  │ │  ┌──┐ ┌──┐
+     │┼│  │  │  │  ││                    │  │  │ │  │  │ │  │
+     │┼│  │  │  │  ││    ethernet to     │1 │2 │ │  │  │ │  │
+     │┼│  │  │  │  │┼────────────────────┤  │  │ ├──┤3 ├─┤4 │
+     │┼┼──┼──┼──┼──┼│     garage         ├──┼──┤ │  │  │ │  │
+     └──────────────┘                    └─────┴─┘  └──┘ └──┘
+    1. 16TB                              1. 18TB
+    2. 16TB                              2. empty for now
+    3. empty                             3. old 10TB usb external
+    4. empty                             4. old 10TB usb external
+
+    Drives 1+2 = RAID1                   Drives 1+3+4 = JBOD array (totalling 38GB)
+
+
+    Method: every night at 1am, rsync anything new to garage NAS
+            every 3 days, backup the plex database (this houses all metadata for libraries)
